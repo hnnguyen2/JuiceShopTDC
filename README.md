@@ -25,7 +25,7 @@ docker build -t moneyx .
 4. Run the image
 ```
 docker run -d -p 8080:8080 -e IMMUNIO_KEY='your-key-goes-here' -e IMMUNIO_SECRET='your-secret-goes-here'  moneyx
-
+```
 Note: To obtain your Key and Secret, you'll need to:
     * Log into your App Protect account
     * Add a new group
