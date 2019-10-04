@@ -1,5 +1,5 @@
 # app-protect-moneyx
-Sample Java Spring application for App Protect demos
+Sample Java Spring application for Deep Security App Protect demos
 ## Detailed Description
 This is a sample, vulnerable-on-purpose, Java Spring application that can be used to demo Deep Security App Protect.
 
