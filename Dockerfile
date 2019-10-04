@@ -11,10 +11,10 @@ RUN git clone --depth=1 https://github.com/nVisium/MoneyX.git .
 
 RUN gradle bootRepackage
 
-ADD https://download.immun.io/internal/java/immunio-3.1.1.jar immunio-3.1.1.jar
+ADD https://download.immun.io/internal/java/immunio-3.3.1.jar immunio-3.3.1.jar
 
 EXPOSE 8080
 
-CMD java -javaagent:immunio-3.1.1.jar -jar build/libs/moneyx.jar
+CMD java -javaagent:immunio-3.3.1.jar -jar build/libs/moneyx.jar
 
 ENV IMMUNIO_LOG_FILE=STDERR
