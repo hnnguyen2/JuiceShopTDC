@@ -11,10 +11,10 @@ RUN git clone --depth=1 https://github.com/nVisium/MoneyX.git .
 
 RUN gradle bootRepackage
 
-ADD https://download.immun.io/internal/java/immunio-3.3.1.jar immunio-3.3.1.jar
+ADD https://files.trendmicro.com/products/CloudOne/ApplicationSecurity/1.0/trend_app_protect-4.1.2.jar trend_app_protect-4.1.2.jar
 
 EXPOSE 8080
 
-CMD java -javaagent:immunio-3.3.1.jar -jar build/libs/moneyx.jar
+CMD java -javaagent:trend_app_protect-4.1.2.jar -jar build/libs/moneyx.jar
 
-ENV IMMUNIO_LOG_FILE=STDERR
+ENV TREND_AP_LOG_FILE=STDERR
