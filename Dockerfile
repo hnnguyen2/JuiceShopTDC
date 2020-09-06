@@ -1,20 +1,18 @@
-FROM frekele/gradle:2.4-jdk8
-
-RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main" > /etc/apt/sources.list
+FROM node:12 as installer
 
 RUN apt-get update && apt-get install -y --no-install-recommends git && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /app
 WORKDIR /app
 
-RUN git clone --depth=1 https://github.com/nVisium/MoneyX.git .
+RUN git clone --depth=1 https://github.com/bkimminich/juice-shop.git .
 
 RUN gradle bootRepackage
 
-ADD https://files.trendmicro.com/products/CloudOne/ApplicationSecurity/1.0/trend_app_protect-4.1.2.jar trend_app_protect-4.1.2.jar
+EXPOSE 3000
 
-EXPOSE 8080
+RUN npm install --save trend_app_protect,
 
-CMD java -javaagent:trend_app_protect-4.1.2.jar -jar build/libs/moneyx.jar
+ADD require('trend_app_protect');
 
 ENV TREND_AP_LOG_FILE=STDERR
