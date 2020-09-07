@@ -7,8 +7,6 @@ WORKDIR /app
 
 RUN git clone --depth=1 https://github.com/bkimminich/juice-shop.git .
 
-RUN gradle bootRepackage
-
 EXPOSE 3000
 
 RUN npm install --save trend_app_protect,
