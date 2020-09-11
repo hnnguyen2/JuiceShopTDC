@@ -11,6 +11,4 @@ EXPOSE 3000
 
 RUN npm install --save trend_app_protect,
 
-ADD require('trend_app_protect');
-
 ENV TREND_AP_LOG_FILE=STDERR
